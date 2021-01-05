@@ -1,5 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
+  <Modal header="Sign up for the Giveaway!" />
   <input type="text" ref="name" />
   <button @click="handleClick">click me</button>
 </template>
