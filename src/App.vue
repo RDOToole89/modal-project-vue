@@ -5,9 +5,13 @@
 </template>
 
 <script>
+  import Modal from './components/Modal.vue';
+
   export default {
     name: 'App',
-    components: {},
+    components: {
+      Modal,
+    },
     data() {
       return {
         title: 'My First Vue App ;)',
