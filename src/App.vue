@@ -2,7 +2,7 @@
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
   <transition name="fade">
-    <div v-if="showModal">
+    <teleport to=".modals" v-if="showModal">
       <Modal theme="sale" @close="toggleModal">
         <template v-slot:links>
           <a href="#">Sign up now</a>
@@ -11,10 +11,10 @@
         <h1>Ninja Giveaway!</h1>
         <p>Grab you ninja swag!</p>
       </Modal>
-    </div>
+    </teleport>
   </transition>
   <transition name="fade">
-    <div v-if="showModal2">
+    <teleport to=".modals" v-if="showModal2">
       <Modal theme="" @close="toggleModal2">
         <template v-slot:links>
           <a href="#">Sign up now</a>
@@ -23,7 +23,7 @@
         <h1>modal2!</h1>
         <p>hello world</p>
       </Modal>
-    </div>
+    </teleport>
   </transition>
   <button @click="toggleModal">open modal</button>
   <button @click="toggleModal2">open modal 2</button>
@@ -68,7 +68,8 @@
 </script>
 
 <style>
-  #app {
+  #app,
+  .modals {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
