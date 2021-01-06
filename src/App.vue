@@ -3,10 +3,30 @@
   <p>Welcome...</p>
   <transition name="fade">
     <div v-if="showModal">
-      <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+      <Modal theme="sale" @close="toggleModal">
+        <template v-slot:links>
+          <a href="#">Sign up now</a>
+          <a href="#">more info</a>
+        </template>
+        <h1>Ninja Giveaway!</h1>
+        <p>Grab you ninja swag!</p>
+      </Modal>
+    </div>
+  </transition>
+  <transition name="fade">
+    <div v-if="showModal2">
+      <Modal theme="" @close="toggleModal2">
+        <template v-slot:links>
+          <a href="#">Sign up now</a>
+          <a href="#">more info</a>
+        </template>
+        <h1>modal2!</h1>
+        <p>hello world</p>
+      </Modal>
     </div>
   </transition>
   <button @click="toggleModal">open modal</button>
+  <button @click="toggleModal2">open modal 2</button>
   <br />
   <input type="text" ref="name" />
   <button @click="handleClick">click me</button>
@@ -26,6 +46,7 @@
         header: 'Sign up for the Giveaway!',
         text: 'Grab your ninja swag for half price!',
         showModal: false,
+        showModal2: false,
       };
     },
     methods: {
@@ -38,6 +59,9 @@
     methods: {
       toggleModal() {
         this.showModal = !this.showModal;
+      },
+      toggleModal2() {
+        this.showModal2 = !this.showModal2;
       },
     },
   };
