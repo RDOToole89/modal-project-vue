@@ -1,9 +1,11 @@
 <template>
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
-  <div v-if="showModal">
-    <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
-  </div>
+  <transition name="fade">
+    <div v-if="showModal">
+      <Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+    </div>
+  </transition>
   <button @click="toggleModal">open modal</button>
   <br />
   <input type="text" ref="name" />
@@ -55,5 +57,16 @@
     border-bottom: 1px solid #ddd;
     display: inline-block;
     padding-bottom: 10px;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  /* // If you are using Vue3: the v-enter/v-leave classes are now v-enter-from/v-leave-from */
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
   }
 </style>
